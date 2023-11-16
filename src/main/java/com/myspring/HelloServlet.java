@@ -7,12 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @program: mySpringFramework
- * @description:
- * @author: Mr.markWang 2764
- * @create: 2023-11-15 17:11
- **/
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
     @Override

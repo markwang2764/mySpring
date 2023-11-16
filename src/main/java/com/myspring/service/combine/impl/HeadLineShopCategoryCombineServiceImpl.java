@@ -20,14 +20,13 @@ public class HeadLineShopCategoryCombineServiceImpl implements HeadLineShopCateg
     private HeadLineService headLineService;
     private ShopCategoryService shopCategoryService;
     @Override
-    public Result<?> getMainPageInfo() {
+    public Result<MainPageInfoDTO> getMainPageInfo() {
         HeadLine headLineCondition = new HeadLine();
         headLineCondition.setEnableStatus(1);
         Result<List<HeadLine>> headLineResult = headLineService.queryHeadLine(headLineCondition, 1, 4);
         ShopCategory shopCategoryCondition = new ShopCategory();
         Result<List<ShopCategory>> shopCategoryResult = shopCategoryService.queryShopCategory(shopCategoryCondition, 1, 100);
-        Result<MainPageInfoDTO> result = mergeMainPageInfoResult(headLineResult, shopCategoryResult);
-        return result;
+        return mergeMainPageInfoResult(headLineResult, shopCategoryResult);
     }
 
     private Result<MainPageInfoDTO> mergeMainPageInfoResult(Result<List<HeadLine>> headLineResult, Result<List<ShopCategory>> shopCategoryResult) {

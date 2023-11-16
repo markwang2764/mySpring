@@ -1,5 +1,6 @@
 package com.myspring.service.combine;
 
+import com.myspring.entity.dto.MainPageInfoDTO;
 import com.myspring.entity.dto.Result;
 
 /**
@@ -9,5 +10,5 @@ import com.myspring.entity.dto.Result;
  * @create: 2023-11-16 15:07
  **/
 public interface HeadLineShopCategoryCombineService {
-     Result<?> getMainPageInfo();
+     Result<MainPageInfoDTO> getMainPageInfo();
 }

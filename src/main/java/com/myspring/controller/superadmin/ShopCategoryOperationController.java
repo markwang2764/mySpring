@@ -32,6 +32,7 @@ public class ShopCategoryOperationController {
 
     Result<ShopCategory> queryShopCategoryById(HttpServletRequest req, HttpServletResponse response) {
         //        TODO 参数校验以及请求参数转化
+        return shopCategoryService.queryShopCategoryById(1);
     }
 
     Result<List<ShopCategory>> queryShopCategory(HttpServletRequest req, HttpServletResponse response) {

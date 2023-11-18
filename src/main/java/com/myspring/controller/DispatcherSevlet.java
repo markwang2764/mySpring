@@ -1,5 +1,7 @@
 package com.myspring.controller;
 
+import com.myspring.controller.frontend.MainPageController;
+import com.myspring.controller.superadmin.HeadLineOperationController;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.ServletException;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * @program: mySpringFramework
@@ -23,7 +26,11 @@ public class DispatcherSevlet extends HttpServlet {
         super.service(req, resp);
         System.out.println(req.getServletPath());
         System.out.println(req.getMethod());
-
+        if (req.getServletPath().equals("/frontend/getmainpageinfo") && req.getMethod().equals("GET")) {
+            new MainPageController().getMainPageInfo(req, resp);
+        } else if (req.getServletPath().equals("/superadmin/addheadline") && req.getMethod().equals("POST")) {
+            new HeadLineOperationController().addHeadLine(req, resp);
+        }
     }
 
     @Override

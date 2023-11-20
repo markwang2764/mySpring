@@ -17,15 +17,28 @@ public class AnnotationParser {
             );
         }
     }
+
     public static void parseFieldAnnotation() throws ClassNotFoundException {
         Class<?> clazz = Class.forName("demo.annotation.JavaInterviewCourse");
         Field[] fields = clazz.getDeclaredFields();
         for (Field f : fields) {
-
+            boolean hasAnnotation = f.isAnnotationPresent(PersonInfoAnnotation.class);
+            if (hasAnnotation) {
+                PersonInfoAnnotation personInfoAnnotation = f.getAnnotation(PersonInfoAnnotation.class);
+                System.out.println(
+                        "名字：" + personInfoAnnotation.name() + "\n" +
+                                "年龄：" + personInfoAnnotation.age() + "\n" +
+                                "性别：" + personInfoAnnotation.gender() + "\n"
+                );
+                for (String language : personInfoAnnotation.language()) {
+                    System.out.println("课程名：" + language);
+                }
+            }
         }
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        parseTypeAnnotation();
+//        parseTypeAnnotation();
+        parseFieldAnnotation();
     }
 }
